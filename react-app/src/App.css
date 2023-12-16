@@ -1,3 +1,4 @@
+/* App.css */
 body {
   font-family: 'Arial', sans-serif;
   margin: 0;
@@ -32,21 +33,45 @@ html, body {
   width: 100px;
 }
 
-.title {
+.title-container a {
+  text-decoration: none;
   color: #e50914;
-  margin-left: 10px;
-  font-family: 'Berkshire Swash', sans-serif;
 }
 
-.login-button {
+.signin-button,
+.signup-button,
+.search-button {
+  cursor: pointer;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.signin-button {
   background-color: #e50914;
   color: #fff;
   padding: 10px 20px;
   font-size: 16px;
   border: none;
-  cursor: pointer;
-  border-radius: 4px;
-  margin-right: -480px;
+  margin-left: 900px;
+}
+
+.signup-button {
+  background-color: #e50914;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  margin-left: 10px;
+}
+
+.search-button {
+  background-color: #e50914;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  margin-bottom: 7px;
+  margin-left: 10px;
 }
 
 .logo-search {
@@ -60,25 +85,12 @@ html, body {
 }
 
 .search-bar input {
-  display: flex;
-  align-items: center;
-  width: 500px;
+  width: 100%;
   padding: 10px;
   font-size: 16px;
   border: none;
   border-radius: 4px;
-  margin-left: 300px;
-}
-
-.search-button {
-  background-color: #e50914;
-  color: #fff;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-  margin-left: 10px;
+  margin-left: 30px;
 }
 
 .container {
@@ -117,7 +129,6 @@ html, body {
   border-radius: 4px;
 }
 
-/* Styl dla linków do zewnętrznych stron */
 .external-links {
   display: flex;
   align-items: center;
@@ -139,3 +150,34 @@ html, body {
   color: #e50914;
 }
 
+@media (max-width: 768px) {
+  .search-bar input {
+    width: auto;
+    margin-left: 0;
+  }
+
+  .login-button,
+  .signup-button,
+  .search-button {
+    margin-left: 0;
+  }
+
+  .external-links a {
+    margin-left: 5px;
+  }
+
+  .movie-tile {
+    width: 100%;
+  }
+}
+
+/* Footer.css */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}

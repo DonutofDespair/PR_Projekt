@@ -1,0 +1,10 @@
+/* Footer.css */
+.footer {
+  background-color: #171616; /* Kolor szarego paska */
+  color: #fff; /* Kolor tekstu na pasku */
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
