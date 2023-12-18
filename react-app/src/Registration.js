@@ -48,7 +48,7 @@ const Registration = () => {
         <br />
         <button type="submit">Zarejestruj się</button>
       </form>
-      <p className="have-account-text">Already have an account? <Link to="/login">Sign In</Link></p>
+      <p className="have-account-text">Already have an account? <Link to="/signin">Sign In</Link></p>
     </div>
   );
 };

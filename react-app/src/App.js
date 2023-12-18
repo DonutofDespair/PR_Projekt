@@ -143,7 +143,7 @@ const App = () => {
           </div>
           <SearchBar />
           <div id="login">
-            <Link to="/login" className="signin-button">
+            <Link to="/signin" className="signin-button">
               Sign In
             </Link>
             <Link to="/signup" className="signup-button">
@@ -157,9 +157,8 @@ const App = () => {
             <Route path="/" element={<Home movies={movies} />} />
             <Route path="/details/:index" element={<Details />} />
             <Route path="/add" element={<AddMovie />} />
-            <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<Registration />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/signin" element={<Login />} />
           </Routes>
         </div>
         <Footer />

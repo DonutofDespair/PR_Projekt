@@ -5,7 +5,7 @@ import './Footer.css';
 const Footer = () => {
   return (
     <div className="footer">
-      © React Projekt Wszołek Konrad
+      © React Projekt (Baza Fimowa) Wszołek Konrad
     </div>
   );
 };
