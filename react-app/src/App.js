@@ -24,6 +24,12 @@ const MovieDetail = ({ movie }) => (
 
 const Home = ({ movies }) => (
   <div>
+  <h2>Movies</h2>
+    <div className="add-movie-button-container">
+      <Link to="/add" className="add-movie-button">
+        Add Movie
+      </Link>
+    </div>
     <div id="search-results" className="movie-tiles">
       {movies.map((movie, index) => (
         <Link key={index} to={`/details/${index}`} className="movie-tile-link">
