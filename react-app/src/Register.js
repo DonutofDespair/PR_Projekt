@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import './Login.css';  // Assuming your CSS file is named Login.css
+import './Registration.css';  // Assuming your CSS file is named Registration.css
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const Login = () => {
+const Register = () => {
   const navigate = useNavigate();
-
   const [formData, setFormData] = useState({
-    login: '',
+    name: '',
+    email: '',
     password: '',
   });
 
@@ -20,54 +20,62 @@ const Login = () => {
 
   const [errors, setErrors] = useState({});
   const handleChangeRoute = () => {
-    navigate('/');
+    navigate('/signin');
     window.location.reload();
   };
 
-  const handleLogin = async (event) => {
+  const handleRegistration = async (event) => {
     event.preventDefault();
 
-    if (!formData.login || !formData.password) {
+    if (!formData.name || !formData.email || !formData.password) {
       return;
     }
 
     axios
-      .post('https://at.usermd.net/api/user/auth', {
-        login: formData.login,
+      .post('https://at.usermd.net/api/user/create', {
+        name: formData.name,
+        email: formData.email,
         password: formData.password,
       })
       .then((response) => {
-        localStorage.setItem('token', response.data.token);
         handleChangeRoute();
       })
       .catch((error) => {
-        const errorMessages = {};
-        errorMessages.password =
-          "Given username doesn't exist or the password is wrong!";
-        setErrors(errorMessages || {});
         console.log(error);
 
         setFormData({
-          login: '',
+          name: '',
+          email: '',
           password: '',
         });
       });
   };
 
   return (
-    <div className="login-box">
+    <div className="registration-container">
       <div className="login-container">
-        <h2>Zaloguj się</h2>
+        <h2>Zarejestruj się</h2>
         <form className="form-global">
-          <label htmlFor="login" className="label">
-            Login
+          <label htmlFor="name" className="label">
+            Nazwa
           </label>
           <input
             type="text"
-            id="login"
-            name="login"
-            placeholder="Login"
-            value={formData.login}
+            id="name"
+            name="name"
+            placeholder="Nazwa"
+            value={formData.name}
+            onChange={handleInputChange}
+          />
+          <label htmlFor="email" className="label">
+            E-mail
+          </label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            placeholder="E-mail"
+            value={formData.email}
             onChange={handleInputChange}
           />
           <label htmlFor="password" className="label">
@@ -81,14 +89,14 @@ const Login = () => {
             value={formData.password}
             onChange={handleInputChange}
           />
-          <button type="submit" onClick={handleLogin}>
-            Zaloguj się
+          <button type="submit" onClick={handleRegistration}>
+            Zarejestruj się
           </button>
         </form>
-        <p className="no-account-text">
-          Nie masz jeszcze konta?{' '}
-          <Link to="/signup" className="login-link-text-gray">
-            Zarejestruj się
+        <p className="have-account-text">
+          Masz już konto?{' '}
+          <Link to="/signin" className="login-link-text">
+            Zaloguj się
           </Link>
         </p>
       </div>
@@ -96,4 +104,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

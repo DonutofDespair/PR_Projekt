@@ -1,0 +1,48 @@
+/* Search.css */
+.main-box {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #000;
+  border-radius: 4px;
+}
+
+.add-movie-box {
+  text-align: center;
+}
+
+.search-result-container {
+  color: #fff;
+}
+
+h2 {
+  color: #e50914;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.link-element-item {
+  cursor: pointer;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #e50914;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.link-element-item:hover {
+  background-color: #e50914;
+}
+
+.link-element-item h4 {
+  margin: 0;
+}
+
+#no-results {
+  color: #fff;
+}
+
+/* You can add more styling for other elements as needed */

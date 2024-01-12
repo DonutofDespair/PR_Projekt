@@ -1,218 +1,32 @@
-/* App.css */
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-image: url('https://wallpapercave.com/wp/wp8979240.jpg');
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  overflow-y: scroll;
-  color: #fff;
-}
+@import url('./fonts.css');
 
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+body {
+  font-family: 'Lato Regular', serif;
 }
 
 .App {
   text-align: center;
+  background-color: #222B31;
 }
 
-.App-header {
-  background-color: #000;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #222B31;
 }
 
-.logo img {
-  width: 100px;
+::-webkit-scrollbar-thumb {
+  background: #191C1F;
+  border-radius: 10px;
 }
 
-.title-container a {
-  text-decoration: none;
-  color: #e50914;
+::-webkit-scrollbar:horizontal{
+  height: 4px;
+}
+::-webkit-scrollbar-thumb:horizontal{
+  background: lightgray;
+  border-radius: 10px;
 }
 
-.signin-button,
-.signup-button,
-.search-button {
-  cursor: pointer;
-  border-radius: 4px;
-  text-decoration: none;
-}
 
-.signin-button:hover,
-.signup-button:hover,
-.search-button:hover {
-  background-color: #d10813;
-}
 
-.signin-button {
-  background-color: #e50914;
-  color: #fff;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  margin-left: 900px;
-}
 
-.signup-button {
-  background-color: #e50914;
-  color: #fff;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  margin-left: 10px;
-}
-
-.search-button {
-  background-color: #e50914;
-  color: #fff;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  margin-bottom: 8px;
-  margin-left: 10px;
-}
-
-.logo-search {
-  display: flex;
-  align-items: center;
-}
-
-.search-bar {
-  display: flex;
-  align-items: center;
-}
-
-.search-bar input {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: none;
-  border-radius: 4px;
-  margin-left: 30px;
-}
-
-.add-movie-button-container {
-  text-align: center;
-  margin-bottom: 20px; /* Adjust spacing as needed */
-}
-
-.add-movie-button {
-  background-color: #e50914;
-  color: #fff;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  text-decoration: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.add-movie-button:hover {
-  background-color: #d10813;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.movie-tiles {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.movie-tile {
-  width: 200px;
-  margin: 20px;
-  text-align: center;
-}
-
-.movie-tile-link {
-  text-decoration: none; /* Remove underlines */
-  color: #fff; /* Set the link color */
-}
-
-.movie-tile-link:hover {
-  text-decoration: none; /* Remove underlines on hover */
-}
-
-#search-results {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin-top: 20px;
-}
-
-.rating {
-  margin-top: 10px;
-  color: #f39c12;
-}
-
-.movie-tile img {
-  width: 100%;
-  height: auto;
-  border-radius: 4px;
-}
-
-.external-links {
-  display: flex;
-  align-items: center;
-}
-
-.external-links a {
-  text-decoration: none;
-  color: #fff;
-  margin-left: 20px;
-  font-weight: bold;
-}
-
-.external-links img {
-  width: 150px;
-  height: 80px;
-}
-
-.external-links a:hover {
-  color: #e50914;
-}
-
-@media (max-width: 768px) {
-  .search-bar input {
-    width: auto;
-    margin-left: 0;
-  }
-
-  .login-button,
-  .signup-button,
-  .search-button {
-    margin-left: 0;
-  }
-
-  .external-links a {
-    margin-left: 5px;
-  }
-
-  .movie-tile {
-    width: 100%;
-  }
-}
-
-/* Footer.css */
-.footer {
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-}

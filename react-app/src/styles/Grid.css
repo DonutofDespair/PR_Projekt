@@ -1,0 +1,54 @@
+/* Grid.css */
+.movie-grid-box {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0); /* Tło całkowicie przeźroczyste */
+  border-radius: 4px;
+}
+
+.movie-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.item {
+  width: 200px;
+  margin: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.item img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.item h3 {
+  color: #fff;
+  margin-top: 10px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background-color: #e50914;
+  color: #fff;
+  padding: 10px;
+  margin: 0 5px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagination button.active {
+  background-color: #d10813;
+}
+
+/* You can add more styling for other elements as needed */
