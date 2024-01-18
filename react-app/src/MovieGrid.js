@@ -1,27 +1,34 @@
 import React, {useState} from 'react';
 import './styles/Grid.css';
-import {FaStar} from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import {useMovies} from "./MoviesContext";
 
 const MovieGrid = () => {
+    // Stan przechowujący numer aktualnej strony
     const [currentPage, setCurrentPage] = useState(1);
     const moviesPerPage = 12;
 
+    // Hook do nawigacji
     const navigate = useNavigate();
+
+    // Hook do pobierania filmów z kontekstu
     const { movies } = useMovies();
 
+    // Funkcja obsługująca kliknięcie na element grida
     const handleItem = (title, id) => {
         navigate(`/details/${encodeURIComponent(title)}/${id}`);
     };
 
+    // Obliczenia dotyczące paginacji
     const indexOfLastMovie = currentPage * moviesPerPage;
     const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
     const currentMovies = movies.slice(indexOfFirstMovie, indexOfLastMovie);
 
+    // Funkcja obsługująca zmianę strony
     const handlePageChange = (page) => {
         setCurrentPage(page);
     };
+
 
     return (
         <div className="movie-grid-box">

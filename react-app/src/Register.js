@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
-import './Registration.css';  // Assuming your CSS file is named Registration.css
+import './styles/Registration.css';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Register = () => {
+  // Hook do nawigacji
   const navigate = useNavigate();
+
+  // Stan przechowujący dane z formularza rejestracji
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
   });
 
+  // Funkcja obsługująca zmiany w inputach formularza
   const handleInputChange = (event) => {
     setFormData({
       ...formData,
@@ -18,42 +22,49 @@ const Register = () => {
     });
   };
 
+  // Stan przechowujący błędy
   const [errors, setErrors] = useState({});
+
+  // Funkcja zmieniająca trasę do strony logowania i przeładowująca stronę
   const handleChangeRoute = () => {
     navigate('/signin');
     window.location.reload();
   };
 
+  // Funkcja obsługująca proces rejestracji
   const handleRegistration = async (event) => {
     event.preventDefault();
 
+    // Sprawdzenie, czy wszystkie pola są wypełnione
     if (!formData.name || !formData.email || !formData.password) {
       return;
     }
 
+    // Wysłanie danych do serwera w celu rejestracji
     axios
-      .post('https://at.usermd.net/api/user/create', {
-        name: formData.name,
-        email: formData.email,
-        password: formData.password,
-      })
-      .then((response) => {
-        handleChangeRoute();
-      })
-      .catch((error) => {
-        console.log(error);
+        .post('https://at.usermd.net/api/user/create', {
+          name: formData.name,
+          email: formData.email,
+          password: formData.password,
+        })
+        .then((response) => {
+          // Przejście do strony logowania po udanej rejestracji
+          handleChangeRoute();
+        })
+        .catch((error) => {
+          console.log(error);
 
-        setFormData({
-          name: '',
-          email: '',
-          password: '',
+          // W przypadku błędu, wyczyszczenie danych z formularza
+          setFormData({
+            name: '',
+            email: '',
+            password: '',
+          });
         });
-      });
   };
 
   return (
     <div className="registration-container">
-      <div className="login-container">
         <h2>Zarejestruj się</h2>
         <form className="form-global">
           <label htmlFor="name" className="label">
@@ -100,7 +111,6 @@ const Register = () => {
           </Link>
         </p>
       </div>
-    </div>
   );
 };
 

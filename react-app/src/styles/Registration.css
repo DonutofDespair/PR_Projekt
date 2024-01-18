@@ -1,4 +1,3 @@
-/* Registration.css */
 .registration-container {
   max-width: 400px;
   margin: auto;
@@ -7,7 +6,7 @@
   border-radius: 8px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: 50px; /* Dodaj odstęp od góry (możesz dostosować wartość) */
+  margin-top: 50px;
   color: #000;
 }
 
@@ -68,5 +67,5 @@ p a:hover {
 }
 
 .have-account-text {
-  color: #000; /* Kolor tekstu ustawiony na czarny */
+  color: #000;
 }

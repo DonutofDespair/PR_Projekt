@@ -1,23 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useMovies } from "./MoviesContext";
-import { FaPlayCircle } from 'react-icons/fa';
 import axios from 'axios';
 import './styles/Details.css';
 
 const MovieDetails = () => {
+    // Pobranie identyfikatora filmu z parametrów URL
     const { id } = useParams();
-    const { setMovies } = useMovies();
+
+    // Stan przechowujący szczegóły filmu
     const [movieDetails, setMovieDetails] = useState(null);
 
+    // Efekt pobierający szczegóły filmu po załadowaniu komponentu
     useEffect(() => {
         const fetchMovieDetails = async () => {
             try {
+                // Pobranie danych o filmie z API
                 const response = await axios.get(`https://at.usermd.net/api/movies/${id}`);
+
+                // Sprawdzenie poprawności odpowiedzi
                 if (!response.data) {
                     throw new Error('Network response was not ok');
                 }
 
+                // Ustawienie szczegółów filmu w stanie komponentu
                 const movieDetailsData = response.data;
                 setMovieDetails(movieDetailsData);
             } catch (error) {
@@ -25,35 +30,32 @@ const MovieDetails = () => {
             }
         };
 
+        // Wywołanie funkcji pobierającej szczegóły filmu
         fetchMovieDetails();
     }, [id]);
 
+    // Wyświetlanie informacji o ładowaniu, jeśli dane są jeszcze pobierane
     if (!movieDetails) {
-        // Render loading state or handle the absence of data
         return <p>Loading...</p>;
     }
 
+
     return (
-        <div className="main-box movie-box">
-            <div className="movie-box-first-column">
+        <div className="main-box-movie-details movie-box">
+            <div className="movie-box-first-column-movie-details">
                 <img src={movieDetails.image} alt={movieDetails.title} />
-                {/*<button onClick="#"><FaPlayCircle />;</button>*/}
             </div>
-            <div className="movie-box-second-column">
+            <div className="movie-box-second-column-movie-details">
                 <h2>{movieDetails.title}</h2>
                 <p>{movieDetails.content}</p>
                 <table>
                     <tbody>
                     <tr>
-                        <td className="td">Aktorzy:</td>
-                        <td>{movieDetails.mainActors}</td>
+                        <td className="td-label">Rok produkcji:</td>
+                        <td>{movieDetails.productionYear}</td>
                     </tr>
                     <tr>
-                        <td>Producent</td>
-                        <td>{movieDetails.producer}</td>
-                    </tr>
-                    <tr>
-                        <td>Gatunek</td>
+                        <td className="td-label">Gatunek:</td>
                         <td>{movieDetails.genre}</td>
                     </tr>
                     </tbody>

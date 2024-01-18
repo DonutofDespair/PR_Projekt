@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
-import './Login.css';  // Assuming your CSS file is named Login.css
+import './styles/Login.css';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Login = () => {
   const navigate = useNavigate();
 
+  // Stan przechowujący dane formularza
   const [formData, setFormData] = useState({
     login: '',
     password: '',
   });
 
+  // Funkcja obsługująca zmianę wartości w polach formularza
   const handleInputChange = (event) => {
     setFormData({
       ...formData,
@@ -18,40 +20,48 @@ const Login = () => {
     });
   };
 
+  // Stan przechowujący błędy walidacji
   const [errors, setErrors] = useState({});
+
+  // Funkcja zmieniająca trasę po zalogowaniu
   const handleChangeRoute = () => {
     navigate('/');
     window.location.reload();
   };
 
+  // Funkcja obsługująca logowanie
   const handleLogin = async (event) => {
     event.preventDefault();
 
+    // Walidacja pól formularza
     if (!formData.login || !formData.password) {
       return;
     }
 
     axios
-      .post('https://at.usermd.net/api/user/auth', {
-        login: formData.login,
-        password: formData.password,
-      })
-      .then((response) => {
-        localStorage.setItem('token', response.data.token);
-        handleChangeRoute();
-      })
-      .catch((error) => {
-        const errorMessages = {};
-        errorMessages.password =
-          "Given username doesn't exist or the password is wrong!";
-        setErrors(errorMessages || {});
-        console.log(error);
+        .post('https://at.usermd.net/api/user/auth', {
+          login: formData.login,
+          password: formData.password,
+        })
+        .then((response) => {
+          // Zapisanie tokena do localStorage po udanym zalogowaniu
+          localStorage.setItem('token', response.data.token);
+          handleChangeRoute();
+        })
+        .catch((error) => {
+          // Obsługa błędów podczas logowania
+          const errorMessages = {};
+          errorMessages.password =
+              "Podany login nie istnieje lub hasło jest błędne!";
+          setErrors(errorMessages || {});
+          console.log(error);
 
-        setFormData({
-          login: '',
-          password: '',
+          // Zresetowanie danych formularza po błędzie
+          setFormData({
+            login: '',
+            password: '',
+          });
         });
-      });
   };
 
   return (

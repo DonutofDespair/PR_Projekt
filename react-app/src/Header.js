@@ -8,37 +8,42 @@ const Header = () => {
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState('');
 
+    // Obsługa zmiany wartości w polu wyszukiwania
     const handleInputChange = (e) => {
         setSearchTerm(e.target.value);
     };
 
+    // Obsługa naciśnięcia klawisza Enter w polu wyszukiwania
     const handleKeyPress = (e) => {
         if (e.key === 'Enter') {
             handleSearch();
         }
     };
 
+    // Obsługa naciśnięcia przycisku wyszukiwania
     const handleSearchButtonClick = () => {
         handleSearch();
     };
 
+    // Obsługa wyszukiwania i nawigacji do strony wyników
     const handleSearch = () => {
         navigate(`/search/${searchTerm}`);
         setSearchTerm('');
     };
 
+    // Stan informujący o zalogowaniu użytkownika
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+    // Efekt sprawdzający, czy użytkownik jest zalogowany po załadowaniu komponentu
     useEffect(() => {
-        // Sprawdzanie, czy użytkownik jest zalogowany po załadowaniu komponentu
         const token = localStorage.getItem('token');
         if (token) {
             setIsLoggedIn(true);
         }
-    }, []); // Pusta tablica oznacza, że useEffect będzie wykonane tylko raz po zamontowaniu komponentu
+    }, []);
 
+    // Obsługa wylogowania użytkownika
     const handleLogout = () => {
-        // Logika do wylogowania użytkownika (np. usuwanie tokena)
         localStorage.removeItem('token');
         setIsLoggedIn(false);
         window.location.reload();

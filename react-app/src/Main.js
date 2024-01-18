@@ -5,16 +5,21 @@ import {FaPlus} from "react-icons/fa";
 import {useNavigate} from "react-router-dom";
 
 const Main = () => {
-
+    // Hook do nawigacji
     const navigate = useNavigate();
+
+    // Stan informujący o zalogowaniu użytkownika
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+    // Efekt sprawdzający, czy użytkownik jest zalogowany po załadowaniu komponentu
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (token) {
             setIsLoggedIn(true);
         }
     }, []);
+
+    // Funkcja zmieniająca trasę do strony dodawania filmu i przeładowująca stronę
     const handleChangeRoute = () => {
         navigate('/add');
         window.location.reload();
