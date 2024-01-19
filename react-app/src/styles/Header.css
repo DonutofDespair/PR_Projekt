@@ -18,7 +18,7 @@
 .logo-text_2 {
   margin-left: -190px;
   margin-bottom: -30px;
-  color: red;
+  color: #8f0e91;
   font-family: 'Berkshire Swash', cursive;
   font-size: 45px;
   text-decoration: none;
@@ -26,7 +26,7 @@
 }
 
 .logo-text_2:hover {
-  color: #e50914;
+  color: #ae12b0;
   text-decoration: none;
 }
 
@@ -45,7 +45,7 @@
 }
 
 .search-button {
-  background-color: #e50914;
+  background-color: #8f0e91;
   color: #fff;
   padding: 10px;
   font-size: 16px;
@@ -56,11 +56,11 @@
 }
 
 .search-button:hover {
-  background-color: #d10813;
+  background-color: #ae12b0;
 }
 
 .login-btn {
-  background-color: #e50914;
+  background-color: #8f0e91;
   color: #fff;
   padding: 10px 20px;
   font-size: 16px;
@@ -71,5 +71,5 @@
 }
 
 .login-btn:hover {
-  background-color: #d10813;
+  background-color: #ae12b0;
 }

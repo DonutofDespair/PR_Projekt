@@ -2,7 +2,7 @@
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background-image: url('https://wallpapercave.com/wp/wp8979240.jpg');
+  background-image: url('https://wallpaperaccess.com/full/3982321.jpg');
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
@@ -20,11 +20,11 @@
 }
 
 .sectionGrid h2 {
-  color: #e50914;
+  color: #8f0e91;
 }
 
 .add-movie-button {
-  background-color: #e50914;
+  background-color: #8f0e91;
   color: #fff;
   padding: 10px 20px;
   font-size: 24px;
@@ -37,7 +37,7 @@
 }
 
 .add-movie-button:hover {
-  background-color: #d10813;
+  background-color: #ae12b0;
 }
 
 

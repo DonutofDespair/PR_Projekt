@@ -53,11 +53,11 @@ const MovieDetails = () => {
                 <table>
                     <tbody>
                     <tr>
-                        <td className="td">Ocena:</td>
+                        <td className="td-label">Ocena:</td>
                         <td>
                             <div className="rating-container">
                                 <div className="rating">
-                                    <FaStar color="gold" />
+                                    <FaStar color="#ae12b0" />
                                     <span>{movieDetails.rate}</span>
                                 </div>
                             </div>

@@ -11,13 +11,13 @@
 }
 
 .search-result-container {
-  color: #fff;
+  color: #000;
 }
 
 
 h2 {
   text-align: center;
-  color: #333;
+  color: #8f0e91;
 }
 
 ul {
@@ -29,13 +29,13 @@ ul {
   cursor: pointer;
   padding: 10px;
   margin: 10px 0;
-  border: 1px solid #e50914;
+  border: 1px solid #8f0e91;
   border-radius: 4px;
   transition: background-color 0.3s;
 }
 
 .link-element-item:hover {
-  background-color: #e50914;
+  background-color: #ae12b0;
 }
 
 .link-element-item h4 {

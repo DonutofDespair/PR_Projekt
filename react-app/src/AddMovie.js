@@ -2,6 +2,15 @@ import React, { useState } from 'react';
 import './styles/AddMovie.css';
 import {Link, useNavigate} from 'react-router-dom';
 import axios from 'axios';
+import ReactDOM from 'react-dom';
+import MouseTracker from './MouseTracker';
+
+ReactDOM.render(
+    <React.StrictMode>
+        <MouseTracker />
+    </React.StrictMode>,
+    document.getElementById('root')
+);
 
 // Komponent do dodawania nowego filmu
 const AddMovie = () => {

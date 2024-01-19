@@ -26,7 +26,7 @@
 }
 +
 h2 {
-  color: #333;
+  color: #8f0e91;
 }
 
 .form-add-movie {
@@ -62,7 +62,7 @@ textarea {
 }
 
 button {
-  background-color: #e50914;
+  background-color: #8f0e91;
   color: #fff;
   padding: 12px;
   font-size: 16px;
@@ -73,9 +73,9 @@ button {
 }
 
 button:hover {
-  background-color: #d10813;
+  background-color: #ae12b0;
 }
 
 .login-link-text-gray {
-  color: #555;
+  color: #8f0e91;
 }
