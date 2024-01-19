@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import './styles/Details.css';
+import { FaStar } from 'react-icons/fa';
+
 
 const MovieDetails = () => {
     // Pobranie identyfikatora filmu z parametrów URL
@@ -50,6 +52,17 @@ const MovieDetails = () => {
                 <p>{movieDetails.content}</p>
                 <table>
                     <tbody>
+                    <tr>
+                        <td className="td">Ocena:</td>
+                        <td>
+                            <div className="rating-container">
+                                <div className="rating">
+                                    <FaStar color="gold" />
+                                    <span>{movieDetails.rate}</span>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
                     <tr>
                         <td className="td-label">Rok produkcji:</td>
                         <td>{movieDetails.productionYear}</td>

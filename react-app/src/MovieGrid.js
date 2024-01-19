@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './styles/Grid.css';
 import { useNavigate } from 'react-router-dom';
 import {useMovies} from "./MoviesContext";
+import {FaStar} from "react-icons/fa";
 
 const MovieGrid = () => {
     // Stan przechowujący numer aktualnej strony
@@ -32,11 +33,15 @@ const MovieGrid = () => {
 
     return (
         <div className="movie-grid-box">
-            <div  className="movie-grid">
+            <div className="movie-grid">
                 {currentMovies.map((movie) => (
                     <div className="item" key={movie.id} onClick={() => handleItem(movie.title, movie.id)}>
                         <img src={movie.image} alt={movie.title} />
                         <h3>{movie.title}</h3>
+                            <div className="rating">
+                                <FaStar color="gold" />
+                                <span>{movie.rate ?? '0.0'}</span>
+                            </div>
                     </div>
                 ))}
             </div>
@@ -51,9 +56,7 @@ const MovieGrid = () => {
                     </button>
                 ))}
             </div>
-
         </div>
-
     );
 };
 

@@ -3,7 +3,9 @@ import './styles/AddMovie.css';
 import {Link, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 
+// Komponent do dodawania nowego filmu
 const AddMovie = () => {
+    // Inicjalizuje hook do nawigacji w aplikacji
     const navigate = useNavigate();
 
     // Stan przechowujący dane formularza
@@ -11,11 +13,12 @@ const AddMovie = () => {
         title: '',
         image: '',
         content: '',
+        rate: '',
         productionYear: '',
         genre: '',
     });
 
-    // Aktualizacja danych formularza po zmianie
+    // Obsługuje zmiany wprowadzanych danych w formularzu
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setFormData({
@@ -24,55 +27,58 @@ const AddMovie = () => {
         });
     };
 
-    // Zmiana trasy i przeładowanie strony
+    // Zmienia trasę przeglądarki i odświeża stronę
     const handleChangeRoute = () => {
         navigate('/');
         window.location.reload();
     };
 
-    // Obsługa przesyłania formularza (dodawanie filmu)
+    // Obsługuje dodanie nowego filmu
     const handleAdd = async (event) => {
         event.preventDefault();
 
-        // Walidacja pól formularza
+        // Sprawdza, czy wszystkie wymagane pola są wypełnione
         if (
             !formData.title ||
             !formData.image ||
             !formData.content ||
+            !formData.rate ||
             !formData.productionYear ||
             !formData.genre
         ) {
             return;
         }
 
-        // Wykonanie żądania POST w celu dodania filmu
+        // Wysyła zapytanie POST do API w celu dodania filmu
         axios
             .post('https://at.usermd.net/api/movies', {
                 title: formData.title,
                 image: formData.image,
                 content: formData.content,
+                rate: formData.rate,
                 productionYear: formData.productionYear,
                 genre: formData.genre,
             })
             .then((response) => {
-                // Zmiana trasy po udanym dodaniu
+                // Po pomyślnym dodaniu filmu, zmienia trasę przeglądarki
                 handleChangeRoute();
             })
             .catch((error) => {
                 console.log(error);
 
-                // Zresetowanie danych formularza w przypadku błędu
+                // Resetuje formularz po nieudanej próbie dodania filmu
                 setFormData({
                     title: '',
                     image: '',
                     content: '',
+                    rate: '',
                     productionYear: '',
                     genre: '',
                 });
             });
     };
 
-    // Zmiana trasy do strony usuwania
+    // Zmienia trasę przeglądarki do strony usuwania
     const handleDelete = () => {
         navigate('/delete');
     };
@@ -110,6 +116,14 @@ const AddMovie = () => {
                         />
                         <input
                             type="text"
+                            id="rate"
+                            name="rate"
+                            placeholder="Ocena"
+                            value={formData.rate}
+                            onChange={handleInputChange}
+                        />
+                        <input
+                            type="text"
                             id="pubYear"
                             name="productionYear"
                             value={formData.productionYear}
@@ -129,7 +143,7 @@ const AddMovie = () => {
                         </button>
                     </div>
                 </form>
-                <button type="button" onClick={handleDelete} >
+                <button type="button" onClick={handleDelete}>
                     Usuń film
                 </button>
             </div>

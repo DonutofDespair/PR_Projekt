@@ -17,7 +17,14 @@
   margin: 20px;
   text-align: center;
   cursor: pointer;
+  overflow: hidden; /* Dodaj overflow: hidden, aby uniknąć efektu "przeskakiwania" obrazu */
+  transition: transform 0.3s ease-in-out; /* Dodaj animację do transformacji */
 }
+
+.item:hover {
+  transform: scale(1.1); /* Powiększenie o 10% po najechaniu myszką */
+}
+
 
 .item img {
   width: 100%;
